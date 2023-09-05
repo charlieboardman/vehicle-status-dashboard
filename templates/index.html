@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+	<title>PM Vehicle Status Dashboard</title>
+	<style>
+	table {
+		border-collapse: collapse;
+	}
+
+	table, th, td {
+		font-size: 48px;
+	}
+
+	td {
+		padding: 15px;
+		text-align: center;
+	}
+
+	</style>
+		
+
+</head>
+
+<body>
+
+<h1>Vehicle Status</h1>
+<table border='1' cellspacing='0' cellpadding='5'> 
+
+{% for car in dashboard %}
+	
+	{% set color = 'green' if car.status == 'Good' else 'yellow' if car.status == 'Caution' else 'red' if car.status == 'Down' %}
+	
+	<tr>
+	<td>{{ car.name }}</td>
+	
+	<td style="background-color:{{ color }};">{{ car.status }}</td>	
+	
+	</tr>
+
+{% endfor %}
+
+
+</table>
+
+</body>
+
+</html>
