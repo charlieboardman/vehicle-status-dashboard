@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+	<title>Vehicle Status Update Menu</title>
+	<style>
+	table {
+		border-collapse: collapse;
+	}
+
+	table, th, td {
+		font-size: 48px;
+	}
+
+	td {
+		padding: 15px;
+		text-align: center;
+	}
+
+	button {
+	
+		font-size: 36px;
+		padding: 15px;
+	{
+
+	</style>
+		
+
+</head>
+
+<body>
+
+<h1>Update vehicle status</h1>
+<table border='1' cellspacing='0' cellpadding='5'> 
+
+{% for car in dashboard %}
+		
+	<tr>
+	<td>{{ car.name }}</td>
+	
+	<td> 
+	<form method="post">
+	<button type="submit" name="update_button" value="{{ car.name ~ ',Good' }}">Good</button>
+	<button type="submit" name="update_button" value="{{ car.name ~ ',Caution' }}">Caution</button>
+	<button type="submit" name="update_button" value="{{ car.name ~ ',Down' }}">Down</button>
+	</form>
+	</td>	
+	
+	</tr>
+
+{% endfor %}
+
+
+</table>
+
+</body>
+
+</html>
